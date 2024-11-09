@@ -385,6 +385,13 @@ class Page extends Entity
         return $this->iconType;
     }
 
+    public function setIcon(string $icon, string $iconType): Page
+    {
+        $this->icon = $icon;
+        $this->iconType = $iconType;
+        return $this;
+    }
+
     /**
      * @return string
      */

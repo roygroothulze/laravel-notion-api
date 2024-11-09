@@ -45,6 +45,7 @@ class Pages extends Endpoint implements EndpointInterface
 
         $postData['parent'] = ['database_id' => $parentId];
         $postData['properties'] = $properties;
+        $postData['icon'] = $page->getIcon();
 
         $response = $this
             ->post(
@@ -70,6 +71,7 @@ class Pages extends Endpoint implements EndpointInterface
 
         $postData['parent'] = ['page_id' => $parentId];
         $postData['properties'] = $properties;
+        $postData['icon'] = $page->getIcon();
 
         $response = $this
             ->post(
@@ -96,6 +98,7 @@ class Pages extends Endpoint implements EndpointInterface
         }
 
         $postData['properties'] = $properties;
+        $postData['icon'] = $page->getIcon();
 
         $response = $this
             ->patch(
