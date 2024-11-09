@@ -45,7 +45,20 @@ class Pages extends Endpoint implements EndpointInterface
 
         $postData['parent'] = ['database_id' => $parentId];
         $postData['properties'] = $properties;
-        $postData['icon'] = $page->getIcon();
+
+        $iconType = $page->getIconType();
+
+        if ($iconType === 'Emoji') {
+            $postData['icon'] = [
+                'emoji' => $page->getIcon()
+            ];
+        } else {
+            $postData['icon'] = [
+                'external' => [
+                    'url' => $page->getIcon()
+                ]
+            ];
+        }
 
         $response = $this
             ->post(
